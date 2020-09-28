@@ -13,6 +13,7 @@
 
 // populate_html function to populate index.html with weather data
     // input = output from get_weather
+    // convert temperature into all three of k/f/c
     // populate html elements with the relevant data
 
 // add eventlistener to "get weather" button - i believe this will have to have some asynchronicity!

@@ -1,8 +1,10 @@
 // define consts for html elements that will be updated:
-    // city
-    // temperature
-    // condition
-    // season
+let city_name = document.getElementById(city_name);
+let temperature_kelvin = document.getElementById(temperature_kelvin);
+let temperature_fahrenheit = document.getElementById(temperature_fahrenheit);
+let temperature_celsius = document.getElementById(temperature_celsius);
+let weather_condition = document.getElementById(weather_condition);
+let seasonal_pic = document.getElementById(seasonal_pic);
 
 // get_weather function to run when "get weather" button is pressed
     // retrieve zip code from input (handling errors elegantly)

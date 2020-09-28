@@ -9,32 +9,50 @@
     <script src="https://use.fontawesome.com/8e550003cb.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="js/main.js"></script>
 </head>
 
 <body>
     <!-- input container -->
-    <div class="container">
+    <div class="container text-center">
         <!-- row: these columns should switch to full width on mobile -->
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-5 p-3">
+                what's it like out there?
                 <!-- left column - title -->
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-7 p-3">
                 <!-- right column - zip code input "get weather" button -->
+                <input>
+                <button>tell me</button>
             </div>
         </div>
     </div>
-
     <!-- output container -->
-    <div class="container">
+    <div class="container text-center">
         <!-- row: these columns should switch to full width on mobile -->
         <div class="row">
             <div class="col-sm-6">
                 <!-- left column: city, temperature, & condition grids -->
+                <div class="row m-3">
+                    <div class="col-12 border">city</div>
+                    <div id="city_name" class="col-12 border">city_name</div>
+                </div>
+                <div class="row m-3">
+                    <div class="col-12 border">temperature</div>
+                    <div id="temperature_kelvin" class="col-4 border">kelvin</div>
+                    <div id="temperature_fahrenheit" class="col-4 border">fahrenheit</div>
+                    <div id="temperature_celsius" class="col-4 border">celsius</div>
+                </div>
+                <div class="row m-3">
+                    <div class="col-12 border">condition</div>
+                    <div id="weather_condition" class="col-12 border">weather_condition</div>
+                </div>
             </div>
             <div class="col-sm-6">
                 <!-- right column - seasonal display -->
+                <div class="row m-3">
+                    <div class="col-12 border">seasonal pic<img id="seasonal_pic"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -50,6 +68,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

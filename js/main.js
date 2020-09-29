@@ -38,7 +38,7 @@ async function get_weather(zip) {
         return parsed;
     }).catch(error => {
         // alert user to errors
-        alert('something didn\'t work there. please try again!')
+        alert('Something didn\'t work there. Please try again!')
     });
     return result;
 }
@@ -81,7 +81,7 @@ async function run() {
         populate_html(weather_data);
         output_container.classList.remove("d-none");
     } else {
-        alert('please enter a valid 5-digit US zip code :)');
+        alert('Please enter a valid 5-digit US zip code :)');
     }
 }
 

@@ -61,15 +61,15 @@ function populate_html(weather_data) {
     // condition
     weather_condition.textContent = weather_data.condition;
     // icon
-    weather_icon.setAttribute("src",`http://openweathermap.org/img/w/${weather_data.icon_code}.png`)
+    weather_icon.setAttribute("src", `http://openweathermap.org/img/w/${weather_data.icon_code}.png`)
     // seasonal pic
     let current_month = new Date().getMonth();
     if (weather_data.latitude > 0) {
-        seasonal_pic.setAttribute("src",pic_links[Math.floor(current_month / 3) % 4]);
+        seasonal_pic.setAttribute("src", pic_links[Math.floor(current_month / 3) % 4]);
     } else {
         // adjust pic_links index for southern hemisphere
         current_month < 6 ? current_month += 6 : current_month -= 6;
-        seasonal_pic.setAttribute("src",pic_links[Math.floor(current_month / 3) % 4]);
+        seasonal_pic.setAttribute("src", pic_links[Math.floor(current_month / 3) % 4]);
     }
 }
 
@@ -87,5 +87,19 @@ async function run() {
     }
 }
 
+// focus the input box upon loading
+input_zip.focus();
+
 // add event listener to "get weather" button
 input_button.addEventListener("click", run);
+
+// add event listener for key-press to trigger "get weather" button-click
+document.addEventListener("keyup", event => {
+    // check if key === enter/return
+    if (event.keyCode === 13) {
+        // prevent other default actions from happening
+        event.preventDefault();
+        // pretend that the input button got clicked
+        input_button.click();
+    }
+});

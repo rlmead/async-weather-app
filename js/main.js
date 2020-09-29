@@ -3,6 +3,7 @@ const input_zip = document.getElementById("input_zip");
 const input_button = document.getElementById("input_button");
 
 // html output
+const output_container = document.getElementById("output_container");
 const city_name = document.getElementById("city_name");
 const temperature_kelvin = document.getElementById("temperature_kelvin");
 const temperature_fahrenheit = document.getElementById("temperature_fahrenheit");
@@ -17,7 +18,7 @@ const open_weather_key = '&appid=fcec01a7089ad8ad44cce9a1071a284c';
 // get_weather function to run when zip code is entered
 async function get_weather(zip) {
     // pass zip code input to openweather api
-    let result = await fetch(open_weather_url + zip + open_weather_key).then((weather_data) => {
+    let result = await fetch(`${open_weather_url}${zip}${open_weather_key}`).then((weather_data) => {
         if (weather_data.ok) {
             return weather_data.json();
         } else {
@@ -61,6 +62,7 @@ input_button.addEventListener("click", async function () {
         let weather_data = await get_weather(input_zip.value);
         // then populate_html
         populate_html(weather_data);
+        output_container.classList.remove("d-none");
     } else {
         alert('please enter a valid 5-digit US zip code :)');
     }

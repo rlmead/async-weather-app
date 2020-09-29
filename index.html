@@ -1,39 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asynchronous Weather App</title>
-    <!-- connect up all the scripts and styling -->
+    <!-- connect up scripts -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/theme_1601322670819.css">
+
 </head>
+
 <body>
     <!-- input container -->
+    <div class="container text-center bg-light rounded-lg">
         <!-- row: these columns should switch to full width on mobile -->
-
-        <!-- left column -
-            title
-        -->
-
-        <!-- right column -
-            zip code input
-            "get weather" button
-        -->
-
+        <div class="row">
+            <div class="col-sm-4 p-2">
+                <h2 class="font-weight-bold">Weather Oracle</h2>
+                <!-- left column - title -->
+            </div>
+            <div class="col-sm-8 p-2">
+                <!-- right column - zip code input "get weather" button -->
+                <input id="input_zip" placeholder="5-digit US zip code">
+                <button id="input_button" class="bg-primary text-light font-weight-bold">get weather</button>
+            </div>
+        </div>
+    </div>
     <!-- output container -->
-
+    <div id="output_container" class="container text-center bg-light rounded-lg d-none">
         <!-- row: these columns should switch to full width on mobile -->
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- left column: city, temperature, & condition grids -->
+                <div class="row m-3">
+                    <div class="col-12 border bg-success font-weight-bold">city</div>
+                    <div id="city_name" class="col-12 border bg-warning"></div>
+                </div>
+                <div class="row m-3">
+                    <div class="col-12 border bg-success font-weight-bold">temperature</div>
+                    <div id="temperature_kelvin" class="col-4 border bg-warning"></div>
+                    <div id="temperature_fahrenheit" class="col-4 border bg-warning"></div>
+                    <div id="temperature_celsius" class="col-4 border bg-warning"></div>
+                </div>
+                <div class="row m-3">
+                    <div class="col-12 border bg-success font-weight-bold">condition</div>
+                    <div id="weather_condition" class="col-6 border bg-warning"></div>
+                    <div class="col-6 border bg-warning">
+                        <img id="weather_icon">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <!-- right column - seasonal display -->
+                <div class="row m-3">
+                    <div class="col-12">
+                        <img id="seasonal_pic" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <!-- left column -
-                table: city
-                table: temperature
-                table: condition
-            -->
-
-            <!-- right column -
-                seasonal display
-            -->
-
-<!-- connect up all the bootstrap and themestr styling -->
-
+    <!-- connect up all the bootstrap styling -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

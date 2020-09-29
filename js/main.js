@@ -9,7 +9,7 @@ const temperature_kelvin = document.getElementById("temperature_kelvin");
 const temperature_fahrenheit = document.getElementById("temperature_fahrenheit");
 const temperature_celsius = document.getElementById("temperature_celsius");
 const weather_condition = document.getElementById("weather_condition");
-const seasonal_pic = document.getElementById("seasonal_pic");
+const weather_icon = document.getElementById("weather_icon");
 
 // open weather api url components
 const open_weather_url = 'https://api.openweathermap.org/data/2.5/weather?zip=';
@@ -52,6 +52,7 @@ function populate_html(weather_data) {
     // condition
     weather_condition.textContent = weather_data.condition;
     // icon
+    weather_icon.setAttribute("src",`http://openweathermap.org/img/w/${weather_data.icon_code}.png`)
 }
 
 // add event listener to "get weather" button

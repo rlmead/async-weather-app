@@ -10,6 +10,7 @@ const temperature_fahrenheit = document.getElementById("temperature_fahrenheit")
 const temperature_celsius = document.getElementById("temperature_celsius");
 const weather_condition = document.getElementById("weather_condition");
 const weather_icon = document.getElementById("weather_icon");
+const season_report = document.getElementById("season_report");
 const seasonal_pic = document.getElementById("seasonal_pic");
 
 // open weather api url components
@@ -43,6 +44,7 @@ async function get_weather(zip) {
     return result;
 }
 
+let season_list = ['Winter', 'Spring', 'Summer', 'Fall'];
 let pic_links = [
     "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
     "https://images.unsplash.com/photo-1577878668405-f678c7bb05ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
@@ -62,12 +64,13 @@ function populate_html(weather_data) {
     weather_condition.textContent = weather_data.condition;
     // icon
     weather_icon.setAttribute("src", `https://openweathermap.org/img/w/${weather_data.icon_code}.png`)
-    // seasonal pic
+    // seasonal report & pic
     let current_month = new Date().getMonth();
     if (weather_data < 0) {
         // adjust pic_links index for southern hemisphere
         current_month < 6 ? current_month += 6 : current_month -= 6;
     }
+    season_report.textContent = `It's ${season_list[Math.floor(current_month / 3) % 4]}!`
     seasonal_pic.setAttribute("src", pic_links[Math.floor(current_month / 3) % 4]);
 }
 

@@ -24,7 +24,7 @@
             <div class="col-sm-8 p-2">
                 <!-- right column - zip code input "get weather" button -->
                 <input id="input_zip" placeholder="5-digit US zip code">
-                <button id="input_button" class="bg-primary text-light font-weight-bold">get weather</button>
+                <button id="input_button" class="bg-primary text-light font-weight-bold">Get Weather</button>
             </div>
         </div>
     </div>
@@ -35,17 +35,17 @@
             <div class="col-sm-6">
                 <!-- left column: city, temperature, & condition grids -->
                 <div class="row m-3">
-                    <div class="col-12 border bg-success font-weight-bold">city</div>
+                    <div class="col-12 border bg-success font-weight-bold">City</div>
                     <div id="city_name" class="col-12 border bg-warning"></div>
                 </div>
                 <div class="row m-3">
-                    <div class="col-12 border bg-success font-weight-bold">temperature</div>
+                    <div class="col-12 border bg-success font-weight-bold">Temperature</div>
                     <div id="temperature_kelvin" class="col-4 border bg-warning"></div>
                     <div id="temperature_fahrenheit" class="col-4 border bg-warning"></div>
                     <div id="temperature_celsius" class="col-4 border bg-warning"></div>
                 </div>
                 <div class="row m-3">
-                    <div class="col-12 border bg-success font-weight-bold">condition</div>
+                    <div class="col-12 border bg-success font-weight-bold">Weather Conditions</div>
                     <div id="weather_condition" class="col-6 border bg-warning"></div>
                     <div class="col-6 border bg-warning">
                         <img id="weather_icon">
@@ -55,7 +55,9 @@
             <div class="col-sm-6">
                 <!-- right column - seasonal display -->
                 <div class="row m-3">
-                    <div class="col-12">
+                    <div class="col-12 border bg-success font-weight-bold">Season</div>
+                    <div class="col-12 border bg-warning p-2">
+                        <p id="season_report"></p>
                         <img id="seasonal_pic" class="w-100">
                     </div>
                 </div>

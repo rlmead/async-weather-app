@@ -10,6 +10,7 @@ const temperature_fahrenheit = document.getElementById("temperature_fahrenheit")
 const temperature_celsius = document.getElementById("temperature_celsius");
 const weather_condition = document.getElementById("weather_condition");
 const weather_icon = document.getElementById("weather_icon");
+const seasonal_pic = document.getElementById("seasonal_pic");
 
 // open weather api url components
 const open_weather_url = 'https://api.openweathermap.org/data/2.5/weather?zip=';
@@ -31,7 +32,8 @@ async function get_weather(zip) {
             "city": weather_json.name,
             "temperature": weather_json.main.temp,
             "condition": weather_json.weather[0].main,
-            "icon_code": weather_json.weather[0].icon
+            "icon_code": weather_json.weather[0].icon,
+            "latitude": weather_json.coord.lat
         };
         return parsed;
     }).catch(error => {
@@ -40,6 +42,13 @@ async function get_weather(zip) {
     });
     return result;
 }
+
+let pic_links = [
+    "https://images.unsplash.com/photo-1482597869166-609e91429f40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1577878668405-f678c7bb05ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1580223517284-817869c49adb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=823&q=80",
+    "https://images.unsplash.com/photo-1540631162967-821f368288eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
+]
 
 // populate_html function to display weather data
 function populate_html(weather_data) {
@@ -53,6 +62,16 @@ function populate_html(weather_data) {
     weather_condition.textContent = weather_data.condition;
     // icon
     weather_icon.setAttribute("src",`http://openweathermap.org/img/w/${weather_data.icon_code}.png`)
+    // seasonal pic
+    let current_month = new Date().getMonth();
+    console.log(weather_data.latitude);
+    if (weather_data.latitude > 0) {
+        seasonal_pic.setAttribute("src",pic_links[Math.floor(current_month / 3) % 4]);
+    } else {
+        // adjust pic_links index for southern hemisphere
+        current_month < 6 ? current_month += 6 : current_month -= 6;
+        seasonal_pic.setAttribute("src",pic_links[Math.floor(current_month / 3) % 4]);
+    }
 }
 
 // add event listener to "get weather" button

@@ -64,13 +64,11 @@ function populate_html(weather_data) {
     weather_icon.setAttribute("src", `https://openweathermap.org/img/w/${weather_data.icon_code}.png`)
     // seasonal pic
     let current_month = new Date().getMonth();
-    if (weather_data.latitude > 0) {
-        seasonal_pic.setAttribute("src", pic_links[Math.floor(current_month / 3) % 4]);
-    } else {
+    if (weather_data < 0) {
         // adjust pic_links index for southern hemisphere
         current_month < 6 ? current_month += 6 : current_month -= 6;
-        seasonal_pic.setAttribute("src", pic_links[Math.floor(current_month / 3) % 4]);
     }
+    seasonal_pic.setAttribute("src", pic_links[Math.floor(current_month / 3) % 4]);
 }
 
 // one function to rule them all

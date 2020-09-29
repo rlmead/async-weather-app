@@ -10,10 +10,10 @@ const temperature_celsius = document.getElementById("temperature_celsius");
 const weather_condition = document.getElementById("weather_condition");
 const seasonal_pic = document.getElementById("seasonal_pic");
 
-// get_weather function to run when button is pressed
-async function get_weather(z) {
+// get_weather function to run when zip code is entered
+async function get_weather(zip) {
     // pass zip code input to openweather api
-    let result = await fetch('https://api.openweathermap.org/data/2.5/weather?zip=' + z + '&appid=fcec01a7089ad8ad44cce9a1071a284c').then((weather_data) => {
+    let result = await fetch('https://api.openweathermap.org/data/2.5/weather?zip=' + zip + '&appid=fcec01a7089ad8ad44cce9a1071a284c').then((weather_data) => {
         if (weather_data.ok) {
             return weather_data.json();
         } else {
@@ -25,8 +25,8 @@ async function get_weather(z) {
         let parsed = {
             "city": weather_json.name,
             "temperature": weather_json.main.temp,
-            "condition": weather_json.weather.main,
-            "icon_code": weather_json.icon
+            "condition": weather_json.weather[0].main,
+            "icon_code": weather_json.weather[0].icon
         };
         return parsed;
     }).catch(error => {
@@ -36,14 +36,23 @@ async function get_weather(z) {
     return result;
 }
 
-// populate_html function to populate index.html with weather data
-// input = output from get_weather
-// convert temperature into all three of k/f/c
-// populate html elements with the relevant data
+// populate_html function to display weather data
+function populate_html(weather_data) {
+    // city
+    city_name.textContent = weather_data.city;
+    // temperature, with conversions
+    temperature_kelvin.textContent = Math.round(weather_data.temperature) + 'K';
+    temperature_fahrenheit.textContent = Math.round((weather_data.temperature - 273.15) * 9/5 + 32) + 'F';
+    temperature_celsius.textContent = Math.round(weather_data.temperature - 273.15) + 'C';
+    // condition
+    weather_condition.textContent = weather_data.condition;
+    // icon
+}
 
 // add event listener to "get weather" button
 input_button.addEventListener("click", async function () {
     // run get_weather
     let weather_data = await get_weather(input_zip.value);
     // then populate_html
+    populate_html(weather_data);
 })

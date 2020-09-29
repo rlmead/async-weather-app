@@ -61,7 +61,7 @@ function populate_html(weather_data) {
     // condition
     weather_condition.textContent = weather_data.condition;
     // icon
-    weather_icon.setAttribute("src", `http://openweathermap.org/img/w/${weather_data.icon_code}.png`)
+    weather_icon.setAttribute("src", `https://openweathermap.org/img/w/${weather_data.icon_code}.png`)
     // seasonal pic
     let current_month = new Date().getMonth();
     if (weather_data.latitude > 0) {

@@ -42,7 +42,7 @@ function populate_html(weather_data) {
     city_name.textContent = weather_data.city;
     // temperature, with conversions
     temperature_kelvin.textContent = Math.round(weather_data.temperature) + 'K';
-    temperature_fahrenheit.textContent = Math.round((weather_data.temperature - 273.15) * 9/5 + 32) + 'F';
+    temperature_fahrenheit.textContent = Math.round((weather_data.temperature - 273.15) * 9 / 5 + 32) + 'F';
     temperature_celsius.textContent = Math.round(weather_data.temperature - 273.15) + 'C';
     // condition
     weather_condition.textContent = weather_data.condition;
@@ -51,8 +51,13 @@ function populate_html(weather_data) {
 
 // add event listener to "get weather" button
 input_button.addEventListener("click", async function () {
-    // run get_weather
-    let weather_data = await get_weather(input_zip.value);
-    // then populate_html
-    populate_html(weather_data);
+    // validate zip code input
+    if (input_zip.value.match(/^\d{5}$/g)) {
+        // run get_weather
+        let weather_data = await get_weather(input_zip.value);
+        // then populate_html
+        populate_html(weather_data);
+    } else {
+        alert('please enter a valid 5-digit US zip code :)');
+    }
 })

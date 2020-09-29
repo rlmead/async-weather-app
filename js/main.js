@@ -64,7 +64,6 @@ function populate_html(weather_data) {
     weather_icon.setAttribute("src",`http://openweathermap.org/img/w/${weather_data.icon_code}.png`)
     // seasonal pic
     let current_month = new Date().getMonth();
-    console.log(weather_data.latitude);
     if (weather_data.latitude > 0) {
         seasonal_pic.setAttribute("src",pic_links[Math.floor(current_month / 3) % 4]);
     } else {
@@ -74,8 +73,8 @@ function populate_html(weather_data) {
     }
 }
 
-// add event listener to "get weather" button
-input_button.addEventListener("click", async function () {
+// one function to rule them all
+async function run() {
     // validate zip code input
     if (input_zip.value.match(/^\d{5}$/g)) {
         // run get_weather
@@ -86,4 +85,7 @@ input_button.addEventListener("click", async function () {
     } else {
         alert('please enter a valid 5-digit US zip code :)');
     }
-})
+}
+
+// add event listener to "get weather" button
+input_button.addEventListener("click", run);

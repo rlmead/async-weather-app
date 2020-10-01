@@ -13,9 +13,8 @@
 </head>
 
 <body>
-    <!-- input container -->
-    <div class="container text-center bg-light rounded-lg">
-        <!-- row: these columns should switch to full width on mobile -->
+    <div class="container text-center bg-dark text-light rounded-lg">
+        <!-- input row -->
         <div class="row">
             <div class="col-sm-4 p-2">
                 <h2 class="font-weight-bold">Weather Oracle</h2>
@@ -27,27 +26,24 @@
                 <button id="input_button" class="bg-primary text-light font-weight-bold">Get Weather</button>
             </div>
         </div>
-    </div>
-    <!-- output container -->
-    <div id="output_container" class="container text-center bg-light rounded-lg d-none">
-        <!-- row: these columns should switch to full width on mobile -->
-        <div class="row">
+        <!-- output row -->
+        <div id="output_row" class="row d-none text-dark">
             <div class="col-sm-6">
                 <!-- left column: city, temperature, & condition grids -->
                 <div class="row m-3">
                     <div class="col-12 border bg-success font-weight-bold">City</div>
-                    <div id="city_name" class="col-12 border bg-warning"></div>
+                    <div id="city_name" class="col-12 border bg-secondary"></div>
                 </div>
                 <div class="row m-3">
                     <div class="col-12 border bg-success font-weight-bold">Temperature</div>
-                    <div id="temperature_kelvin" class="col-4 border bg-warning"></div>
-                    <div id="temperature_fahrenheit" class="col-4 border bg-warning"></div>
-                    <div id="temperature_celsius" class="col-4 border bg-warning"></div>
+                    <div id="temperature_kelvin" class="col-4 border bg-secondary"></div>
+                    <div id="temperature_fahrenheit" class="col-4 border bg-secondary"></div>
+                    <div id="temperature_celsius" class="col-4 border bg-secondary"></div>
                 </div>
                 <div class="row m-3">
                     <div class="col-12 border bg-success font-weight-bold">Weather Conditions</div>
-                    <div id="weather_condition" class="col-6 border bg-warning"></div>
-                    <div class="col-6 border bg-warning">
+                    <div id="weather_condition" class="col-6 border bg-secondary"></div>
+                    <div class="col-6 border bg-secondary">
                         <img id="weather_icon">
                     </div>
                 </div>
@@ -56,7 +52,7 @@
                 <!-- right column - seasonal display -->
                 <div class="row m-3">
                     <div class="col-12 border bg-success font-weight-bold">Season</div>
-                    <div class="col-12 border bg-warning p-2">
+                    <div class="col-12 border bg-secondary p-2">
                         <p id="season_report"></p>
                         <img id="seasonal_pic" class="w-100">
                     </div>

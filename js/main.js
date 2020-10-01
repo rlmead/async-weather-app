@@ -3,7 +3,7 @@ const input_zip = document.getElementById("input_zip");
 const input_button = document.getElementById("input_button");
 
 // html output
-const output_container = document.getElementById("output_container");
+const output_row = document.getElementById("output_row");
 const city_name = document.getElementById("city_name");
 const temperature_kelvin = document.getElementById("temperature_kelvin");
 const temperature_fahrenheit = document.getElementById("temperature_fahrenheit");
@@ -82,7 +82,7 @@ async function run() {
         let weather_data = await get_weather(input_zip.value);
         // then populate_html
         populate_html(weather_data);
-        output_container.classList.remove("d-none");
+        output_row.classList.remove("d-none");
     } else {
         alert('Please enter a valid 5-digit US zip code :)');
     }
